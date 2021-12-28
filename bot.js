@@ -8,7 +8,7 @@ var time_of_msg;
 
 //start ze bot
 bot.on('/start', msg => {
-    if (msg.from.username == 'eD_cabbages') {
+    // if (msg.from.username == 'eD_cabbages') { add if needed
         time = new Date();
         time = time.getDate() + '/' + time.getMonth() +'/' + time.getFullYear();
         return bot.sendMessage(msg.chat.id, time + ' Pushups = ' + pushup).then(re => {
@@ -19,7 +19,7 @@ bot.on('/start', msg => {
             console.log(time);
             bot.pinChatMessage(chatid, msgid).catch(error => console.log('Error:', error));
         });
-    }
+    //} add if needed
 });
 
 //nooming cek price
@@ -43,7 +43,7 @@ bot.on(['/p', '/bn'], msg => {
             pushup = pushup + 1;
             console.log(msgid);
             console.log(chatid);
-            bot.editMessageText({ chatId: chatid, messageId: msgid }, 'Pushups = ' + pushup).catch(error => console.log('Error:', error));
+            bot.editMessageText({ chatId: chatid, messageId: msgid }, time + 'Pushups = ' + pushup).catch(error => console.log('Error:', error));
         }
         
     }
